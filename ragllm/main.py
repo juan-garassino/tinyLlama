@@ -28,7 +28,7 @@ device = "cuda"
 
 model_id = "google/gemma-1.1-2b-it"
 
-use_quantization_config = True
+use_quantization_config = False #True
 
 num_sentence_chunk_size = 10
 
