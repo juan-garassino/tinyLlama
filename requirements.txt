@@ -17,3 +17,4 @@ transformers
 pymupdf
 #frontend
 spacy
+fitz
