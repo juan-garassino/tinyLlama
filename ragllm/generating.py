@@ -105,7 +105,7 @@ def ask_llm(query,
                               tokenizer=tokenizer)
 
     # Tokenize the prompt
-    input_ids = tokenizer(prompt, return_tensors="pt")#.to("cuda")
+    input_ids = tokenizer(prompt, return_tensors="pt").to("cuda")
 
     # Generate an output of tokens
     outputs = llm_model.generate(**input_ids,

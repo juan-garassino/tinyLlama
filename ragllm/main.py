@@ -16,19 +16,19 @@ pdf_path = "human-nutrition-text.pdf"
 
 url = "https://pressbooks.oer.hawaii.edu/humannutrition2/open/download?type=pdf"
 
-context = 'harry_potter_1'
+#context = 'harry_potter_1'
 
-# context = 'human-nutrition-text'
+context = 'human-nutrition-text'
 
 epub_path = f"{context}.pdf"
 
 model_name_or_path = "all-mpnet-base-v2"
 
-device = "cpu"
+device = "cuda"
 
 model_id = "google/gemma-1.1-2b-it"
 
-use_quantization_config = False
+use_quantization_config = True
 
 num_sentence_chunk_size = 10
 
@@ -56,7 +56,7 @@ manual_questions = [
     "water soluble vitamins"
 ]
 
-query_list = ['donde vive harry potter?'] # gpt4_questions + manual_questions
+query_list = gpt4_questions + manual_questions
 
 # download_pdf_if_not_exists(pdf_path, url) # just if i do not have a source
 

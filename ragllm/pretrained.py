@@ -16,8 +16,8 @@ def initialize_model_and_tokenizer(model_id: str, use_quantization_config: bool 
     - llm_model: The language model instance.
     """
     # Check device validity
-    if device not in ["cpu", "gpu"]:
-        raise ValueError("Invalid device specified. Choose either 'cpu' or 'gpu'.")
+    if device not in ["cpu", "cuda"]:
+        raise ValueError("Invalid device specified. Choose either 'cpu' or 'cuda'.")
 
     # Create quantization config for smaller model loading (optional)
     quantization_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16) if use_quantization_config else None
@@ -44,7 +44,7 @@ def initialize_model_and_tokenizer(model_id: str, use_quantization_config: bool 
     # Move model to the specified device
     if device == "gpu" and not use_quantization_config:
         llm_model.to("cuda")
-    elif device == "cpu":
-        llm_model.to("cpu")
+    elif device == "cuda":
+        llm_model.to("cuda")
 
     return tokenizer, llm_model
